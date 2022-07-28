@@ -1,5 +1,8 @@
 # rus_laboratory
 
+### Description
+Сделать приложение с 3 страницами, визуализирующие данные с https://jsonplaceholder.typicode.com/ . Можно выбрать 3 разных любых эндпоинта апи во вкладке resources. При выполнении задания необходимо использовать vuex/pinia и vue-router. Стилизовать приложение не обязательно.
+
 ## Project setup
 ```
 npm install
