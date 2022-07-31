@@ -9,6 +9,10 @@ const routes = [
     path: "/user",
     component: () => import("@/views/UserPage.vue"),
   },
+  {
+    path: "/post",
+    component: () => import("@/views/PostPage.vue"),
+  },
 ];
 
 const router = createRouter({
