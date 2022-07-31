@@ -6,7 +6,7 @@ export const photos = {
   namespaced: true,
   state: () => ({
     photos: [],
-    page: 1,
+    page: 0,
     limit: 10,
     // totalPage: 0,
     isLoading: false,

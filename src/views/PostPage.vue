@@ -5,7 +5,7 @@
     <ul class="cards">
       <c-page-loader v-if="isLoading" />
       <li class="card" v-for="post in posts" :key="post.id">
-        <div class="card__title">{{ post.title }}</div>
+        <div class="card__title">{{ post.id }}. {{ post.title }}</div>
         <p class="card__text">{{ post.body }}</p>
         <p class="card__apply">
           <a class="card__link" @click="$router.push(`/post/${post.id}`)">
@@ -24,7 +24,9 @@ import CPageLoader from "@/components/Ui/loader/CPageloader.vue";
 export default {
   components: { CPageLoader },
   mounted() {
-    this.getPosts();
+    if (!this.posts) {
+      this.getPosts();
+    }
   },
   computed: {
     ...mapState({

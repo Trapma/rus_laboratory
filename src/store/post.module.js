@@ -8,7 +8,7 @@ export const posts = {
     posts: [],
     postId: {},
     comments: [],
-    page: 1,
+    page: 0,
     limit: 10,
     isLoading: false,
   }),

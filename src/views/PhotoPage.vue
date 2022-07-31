@@ -8,7 +8,7 @@
           <img height="600" width="600" :src="photo.url" alt="" />
         </div>
 
-        <p class="card__title">{{ photo.title }}</p>
+        <p class="card__title">{{ photo.id }}. {{ photo.title }}</p>
       </li>
       <div v-intersection="loadPhoto" class="observer"></div>
     </ul>
@@ -22,7 +22,7 @@ export default {
   components: { CPageLoader },
 
   mounted() {
-    this.getPhotos();
+    if (!this.photos) this.getPhotos();
   },
   computed: {
     ...mapState({
