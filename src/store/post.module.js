@@ -6,6 +6,8 @@ export const posts = {
   namespaced: true,
   state: () => ({
     posts: [],
+    postId: {},
+    comments: [],
     page: 1,
     limit: 10,
     isLoading: false,
@@ -24,6 +26,30 @@ export const posts = {
         commit("SET_POSTS", response.data);
       } catch (e) {
         console.log(e);
+      } finally {
+        commit("IS_LOADING", false);
+      }
+    },
+    async getPostId({ commit }, id) {
+      try {
+        commit("IS_LOADING", true);
+        const response = await axios.get(API_HOST + "posts/" + id);
+        commit("ADD_POST_ID", response.data);
+      } catch (e) {
+        console.log("Ошибка", e);
+      } finally {
+        commit("IS_LOADING", false);
+      }
+    },
+    async getPostIdComments({ commit }, id) {
+      try {
+        commit("IS_LOADING", true);
+        const response = await axios.get(
+          API_HOST + "posts/" + id + "/comments"
+        );
+        commit("ADD_COMMENTS", response.data);
+      } catch (e) {
+        console.log("Ошибка", e);
       } finally {
         commit("IS_LOADING", false);
       }
@@ -58,6 +84,12 @@ export const posts = {
     },
     ADD_POSTS(state, newPosts) {
       state.posts = [...state.posts, ...newPosts];
+    },
+    ADD_POST_ID(state, newPost) {
+      state.postId = newPost;
+    },
+    ADD_COMMENTS(state, comments) {
+      state.comments = comments;
     },
   },
 };

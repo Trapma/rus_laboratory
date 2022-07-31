@@ -7,6 +7,11 @@
       <li class="card" v-for="post in posts" :key="post.id">
         <div class="card__title">{{ post.title }}</div>
         <p class="card__text">{{ post.body }}</p>
+        <p class="card__apply">
+          <a class="card__link" @click="$router.push(`/post/${post.id}`)">
+            see more info
+          </a>
+        </p>
       </li>
       <div v-intersection="loadPost" class="observer"></div>
     </ul>
