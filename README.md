@@ -6,11 +6,16 @@
 ## Project setup
 ```
 npm install
+
+cd json-server npm install
 ```
 
 ### Compiles and hot-reloads for development
 ```
 npm run serve
+
+cd json-server npm run watch
+
 ```
 
 ### Compiles and minifies for production
